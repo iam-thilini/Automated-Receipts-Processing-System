@@ -10,5 +10,5 @@ Workflow:
   4. Extracted data is stored in DynamoDB
   5. A summary email is sent using Amazon SES
 
-
+![Image Alt](image_url)
 
