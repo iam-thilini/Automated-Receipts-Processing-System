@@ -32,7 +32,79 @@ Create folder for incoming receipts
 - Open the bucket
 - Click Create folder
 - Name it, for example:
-```
-incoming/
-```
+  ```
+  incoming/
+  ```
 This folder will be used for all new receipt uploads.
+
+### 2. Setup DynamoDB Database
+1. Open DynamoDB → Create table
+2. Table name:
+   ```
+   Receipts
+   ```
+3. Partition key:
+   ```
+   receipt_id (String)
+   ```
+4. Sort key:
+   ```
+   date (String)
+   ```
+5. Keep all other settings default
+6. Create table
+This allows querying receipts by ID and date range.
+
+### 3. Setup Email Notifications (SES)
+1. Open Amazon Simple EmailSES
+2. Go to Configuration → Identities
+3. Add a new Email Address
+4. Verify the email via the confirmation email sent by AWS
+This email will receive receipt summaries.
+
+### 4. IAM Security Configuration
+Create a role for Lambda to access AWS services securely.
+1. Open IAM → Roles → Create role
+2. Trusted entity:
+  - AWS service
+  - Use case: Lambda
+
+Attach the following policies:
+- AmazonS3ReadOnlyAccess
+- AmazonTextractFullAccess
+- AmazonDynamoDBFullAccess
+- AmazonSESFullAccess
+- AWSLambdaBasicExecutionRole
+3. Role name:
+```
+ReceiptProcessingLambdaRole
+```
+4. Create role
+
+### 5. Create the Lambda Function
+1. Open AWS Lambda → Create function
+2. Select Author from scratch
+3. Function name:
+```
+ReceiptProcessor
+```
+4. Runtime:
+```
+Python 3.10
+```
+5. Architecture: Default
+6. Permissions:
+  - Choose Change default execution role
+  - Select ReceiptProcessingLambdaRole
+7. Create function
+
+### 6. Configure Lambda Settings
+
+
+
+
+
+
+
+
+
