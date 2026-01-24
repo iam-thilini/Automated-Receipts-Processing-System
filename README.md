@@ -21,7 +21,7 @@ This project automatically stores uploaded receipts, extracts key details using 
 - **AWS IAM** – Secure service-to-service access
 
 ## Step-by-Step Setup Guide
-### 1. Create S3 Storage
+### 1️⃣ Create S3 Storage
 1. Open **Amazon S3** → Create bucket
 2. Bucket type: **General purpose**
 3. Enter a **unique bucket name**
