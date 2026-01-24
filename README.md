@@ -147,7 +147,7 @@ Go to **Configuration → Environment variables** and add:
    ```
 3. Lambda automatically triggers
 4. Receipt data is:
-  - Extracted via Textract
+    - Extracted via Textract
     - Stored in DynamoDB
     - Emailed via SES
      
