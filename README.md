@@ -37,7 +37,7 @@ This project automatically stores uploaded receipts, extracts key details using 
   ```
 This folder will be used for all new receipt uploads.
 
-### 2. Setup DynamoDB Database
+### 2️⃣ Setup DynamoDB Database
 1. Open **DynamoDB** → Create table
 2. Table name:
    ```
@@ -55,14 +55,14 @@ This folder will be used for all new receipt uploads.
 6. Create table
 This allows querying receipts by ID and date range.
 
-### 3. Setup Email Notifications (SES)
+### 3️⃣ Setup Email Notifications (SES)
 1. Open **Amazon Simple Email Service (SES)**
 2. Go to **Configuration → Identities**
 3. Add a new **Email Address**
 4. Verify the email via the confirmation email sent by AWS
 This email will receive receipt summaries.
 
-### 4. IAM Security Configuration
+### 4️⃣ IAM Security Configuration
 Create a role for Lambda to access AWS services securely.
 1. Open **IAM** → Roles → Create role
 2. Trusted entity:
@@ -81,7 +81,7 @@ ReceiptProcessingLambdaRole
 ```
 4. Create role
 
-### 5. Create the Lambda Function
+### 5️⃣ Create the Lambda Function
 1. Open **AWS Lambda** → Create function
 2. Select **Author from scratch**
 3. Function name:
@@ -98,7 +98,7 @@ Python 3.10
   - Select **ReceiptProcessingLambdaRole**
 7. Create function
 
-### 6. Configure Lambda Settings
+### 6️⃣ Configure Lambda Settings
 Increase Timeout
 1. Go to **Configuration → General configuration**
 2. Edit timeout:
@@ -116,12 +116,12 @@ Go to **Configuration → Environment variables** and add:
 | SES_SENDER_EMAIL    | [your_verified_email@example.com](mailto:your_verified_email@example.com) |
 | SES_RECIPIENT_EMAIL | [your_verified_email@example.com](mailto:your_verified_email@example.com) |
 
-### 7. Add Lambda Code
+### 7️⃣ Add Lambda Code
 1. Open the **Code** tab
 2. Replace the default code with your Python receipt processing code
 3. Click **Deploy**
 
-### Configure S3 Event Notification
+### 8️⃣ Configure S3 Event Notification
 1. Open your S3 bucket
 2. Go to **Properties**
 3. Scroll to **Event notifications**
