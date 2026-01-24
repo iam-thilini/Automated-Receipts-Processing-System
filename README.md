@@ -99,12 +99,67 @@ Python 3.10
 7. Create function
 
 ### 6. Configure Lambda Settings
+Increase Timeout
+1. Go to Configuration → General configuration
+2. Edit timeout:
+   ```
+   3 minutes
+   ```
+4. Save
 
+Add Add Environment Variables
+Go to Configuration → Environment variables and add:
 
+| Key                 | Value                                                                     |
+| ------------------- | ------------------------------------------------------------------------- |
+| DYNAMODB_TABLE      | Receipts                                                                  |
+| SES_SENDER_EMAIL    | [your_verified_email@example.com](mailto:your_verified_email@example.com) |
+| SES_RECIPIENT_EMAIL | [your_verified_email@example.com](mailto:your_verified_email@example.com) |
 
+### 7. Add Lambda Code
+1. Open the Code tab
+2. Replace the default code with your Python receipt processing code
+3. Click Deploy
 
+### Configure S3 Event Notification
+1. Open your S3 bucket
+2. Go to Properties
+3. Scroll to Event notifications
+4. Click Create event notification
 
+Event settings:
+  - Name: ReceiptUploadEvent
+  - Prefix:
+    ```
+    incoming/
+    ```
+  - Event types:
+    ✅ All object create events
+  - Destination
+    - Lambda function
+    - Select ReceiptProcessor
+5. Save
 
+### How to Test
+1. Upload a receipt (PDF/JPG/PNG) into:
+   ```
+   s3://your-bucket-name/incoming/
+   ```
+3. Lambda automatically triggers
+4. Receipt data is:
+   - Extracted via Textract
+   - Stored in DynamoDB
+   - Emailed via SES
+     
+### Sample Email Output
+- Receipt ID
+- Merchant name
+- Date
+- Total amount
 
+### Security Notes
+- IAM role follows **least privelege access**
+- No credentials are hardcoded
+- Uses environment variables for configuration
 
 
