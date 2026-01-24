@@ -50,6 +50,7 @@ This approach is **cost-efficient, scalable**, and **fully automated**.
 ### DynamoDB Data Modeling
 - Partition key: `receipt_id`
 - Sort key: `date`
+
 This enables efficient lookups and future date-range queries.
 
 ### Security by Design
