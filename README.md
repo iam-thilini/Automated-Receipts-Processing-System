@@ -1,4 +1,4 @@
-# Automated-Receipts-Processing-System
+# Automated Receipts Processing System
 A serverless receipt processing system built on AWS.
 This project automatically stores uploaded receipts, extracts key details using OCR, saves structured data, and sends receipt summaries via email. All without managing servers.
 
