@@ -19,7 +19,7 @@ This project solves that by creating an automated cloud pipeline that processes 
 ## 💡 Solution Summary
 Receipts uploaded to Amazon S3 trigger an automated processing workflow powered by AWS Lambda.
 
-###Processing Flow
+### Processing Flow
 1. Receipt is uploaded to an S3 bucket
 2. S3 event triggers a Lambda function
 3. Amazon Textract extracts receipt data
