@@ -66,8 +66,8 @@ This email will receive receipt summaries.
 Create a role for Lambda to access AWS services securely.
 1. Open **IAM** → Roles → Create role
 2. Trusted entity:
-  - **AWS service**
-  - Use case: **Lambda**
+    - **AWS service**
+    - Use case: **Lambda**
 
 Attach the following policies:
 - AmazonS3ReadOnlyAccess
@@ -94,8 +94,8 @@ Python 3.10
 ```
 5. Architecture: Default
 6. Permissions:
-  - Choose **Change default execution role**
-  - Select **ReceiptProcessingLambdaRole**
+    - Choose **Change default execution role**
+    - Select **ReceiptProcessingLambdaRole**
 7. Create function
 
 ### 6️⃣ Configure Lambda Settings
@@ -147,9 +147,9 @@ Go to **Configuration → Environment variables** and add:
    ```
 3. Lambda automatically triggers
 4. Receipt data is:
-   - Extracted via Textract
-   - Stored in DynamoDB
-   - Emailed via SES
+    - Extracted via Textract
+    - Stored in DynamoDB
+    - Emailed via SES
      
 ### Sample Email Output
 - Receipt ID
