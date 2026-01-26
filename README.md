@@ -10,8 +10,8 @@ The system demonstrates **cloud native design principles, AWS best practices**, 
 
 ## 🎯 Problem Statement
 Manual receipt management is:
-  - Time-consuming
-  - Error-prone
+  - Time consuming
+  - Error prone
   - Difficult to scale
   - Hard to organize and query
 This project solves that by creating an automated cloud pipeline that processes receipts instantly on upload and makes the data searchable and actionable.
@@ -58,12 +58,20 @@ This enables efficient lookups and future date-range queries.
 - Least-privilege permissions
 - No hardcoded secrets (environment variables used)
 
+## 🧪 How It Works 
+1. Upload a receipt (PDF / JPG / PNG) to:
+  ```
+   s3://<bucket-name>/incoming/
+  ```
+2. Processing starts automatically
+3. Receipt data is saved in DynamoDB
+4. A summary email is sent via SES
 
+No manual steps required after upload.
 
-
-
-
-
+## 📘 Detailed Setup Guide
+For step-by-step AWS configuration and deployment instructions, see:
+👉 (docs/setup-guide.md)
 
 
 
