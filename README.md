@@ -71,7 +71,8 @@ No manual steps required after upload.
 
 ## 📘 Detailed Setup Guide
 For step-by-step AWS configuration and deployment instructions, see:
-👉 (docs/setup-guide.md)
+
+👉 [Setup Guide](docs/setup-guide.md)
 
 
 
