@@ -74,7 +74,11 @@ For step-by-step AWS configuration and deployment instructions, see:
 
 👉 [Setup Guide](docs/setup-guide.md)
 
-
+## 🔐 Security & Reliability
+- IAM roles scoped strictly to required services
+- Managed AWS services provide high availability
+- CloudWatch logs available for monitoring and debugging
+- Designed to handle increasing receipt volumes seamlessly
 
 
 
