@@ -80,11 +80,34 @@ For step-by-step AWS configuration and deployment instructions, see:
 - CloudWatch logs available for monitoring and debugging
 - Designed to handle increasing receipt volumes seamlessly
 
+## 🧩 Challenges & Learnings
+### 1️⃣ Handling OCR Latency in a Serverless Workflow
 
+**Challenge:**
+Receipt OCR is not always instantaneous, especially for multi-page PDFs or complex layouts. Textract processing time can exceed the default execution limits of AWS Lambda.
 
+**Learning:**
+The Lambda configuration and execution flow were adjusted to support longer-running OCR tasks, ensuring reliable processing without premature termination while maintaining a fully serverless design.
 
+### 2️⃣ Designing DynamoDB Keys for Scalability
 
+**Challenge:**
+Inefficient key design can severely limit query flexibility and performance as data volume increases.
 
+**Learning:**
+The table schema uses:
+- `receipt_id` as the partition key to ensure uniqueness
+- `date` as the sort key to enable efficient date-based queries and future analytics
+
+This design supports scalable access patterns without restructuring the table.
+
+### 3️⃣ Implementing Least-Privilege IAM Policies
+
+**Challenge:**
+Over-permissioned IAM roles increase security risk and reduce system robustness.
+
+**Learning:**
+A dedicated IAM role was configured with only the permissions required for S3 access, Textract processing, DynamoDB operations, and SES email delivery, reinforcing a security-first approach.
 
 
 
