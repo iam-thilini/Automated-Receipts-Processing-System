@@ -36,6 +36,8 @@ This approach is **cost-efficient, scalable**, and **fully automated**.
 - **Amazon SES** – Email notifications
 - **AWS IAM** – Secure service-to-service access
 
+![Automated Receipts Processing System Architecture](images/automated_receipt_processing_system.png)
+
 ## ⚙️ Key Design Decisions
 
 ### Serverless First
